@@ -24,7 +24,7 @@
             width: 100%;
             z-index: 1;
             position: fixed;
-            border-bottom: 2px solid black; /* Added black border to the navbar */
+            border-bottom: 2px solid black;
         }
 
         .navbar a {
@@ -33,7 +33,7 @@
             margin: 0 15px;
             padding: 5px;
             transition: color 0.3s;
-            font-weight: bold; /* Bold the home text */
+            font-weight: bold;
         }
 
         .navbar a:hover {
@@ -41,14 +41,14 @@
         }
 
         .navbar a:not(:first-child) {
-            font-weight: normal; /* Unbold the additional text links */
+            font-weight: normal;
         }
 
         .image-container {
             width: 100%;
             box-sizing: border-box;
             overflow: hidden;
-            display: none; /* Hide all image containers by default */
+            display: none;
         }
 
         img {
@@ -57,9 +57,28 @@
             object-fit: cover;
             display: block;
             margin: 0;
+            transition: transform 0.3s ease-in-out;
         }
 
-        /* Change scrollbar color */
+        .beige-background {
+            background-color: rgb(255, 213, 136);
+            width: 100%;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .beige-background a {
+            display: inline-block;
+            overflow: hidden;
+            margin: 0 10px; /* Adjust the margin as needed */
+        }
+
+        .beige-background a:hover img {
+            transform: scale(1.1);
+        }
+
         body::-webkit-scrollbar {
             width: 16px;
         }
@@ -88,34 +107,43 @@
     <div class="image-container page" id="home">
         <!-- Keep the other images -->
         <img src="Website (21).png">
-        <img src="Website (13).png">
+        
+        <!-- Beige background between image 21 and image 13 -->
+        <div class="beige-background">
+            <a href="https://www.instagram.com/p/C0g9QdPOgHi/?img_index=1" target="_blank">
+                <img src="Post1.png" alt="Post1 Image" style="width: 400px; height: 400px;"> 
+            </a>
+            <a href="https://www.instagram.com/p/C2Lxrq8ud9b/?img_index=1" target="_blank">
+                <img src="Post2.png" alt="Post2 Image" style="width: 400px; height: 400px;"> 
+            </a>
+            <a href="https://www.instagram.com/p/C0VDVIAxIN2/?img_index=1" target="_blank">
+                <img src="Post3.png" alt="Post3 Image" style="width: 400px; height: 400px;"> 
+            </a>
+        </div>
+
         <img src="Website (19).png">
-        <img src="Website (15).png">
         <img src="Website (16).png">
         <img src="Website (23).png">
     </div>
     
     <!-- Separate Page for Website 17 Image -->
     <div class="image-container page" id="about">
+        <img src="Website (15).png">
         <img src="Website (22).png">
     </div>
 
     <!-- Other pages... -->
 
     <script>
-        // JavaScript to handle page switching
         function showPage(pageId) {
-            // Hide all pages
             var pages = document.getElementsByClassName('page');
             for (var i = 0; i < pages.length; i++) {
                 pages[i].style.display = 'none';
             }
 
-            // Show the selected page
             document.getElementById(pageId).style.display = 'block';
         }
 
-        // Show 'home' page by default
         showPage('home');
     </script>
 </body>
